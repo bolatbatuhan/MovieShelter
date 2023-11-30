@@ -23,21 +23,21 @@ public class PublishersController : BaseController
         return ActionResultInstance(result);
     }
     [HttpPut]
-    public IActionResult Update(PublisherUpdateRequest publisherUpdateRequest)
+    public IActionResult Update([FromBody]PublisherUpdateRequest publisherUpdateRequest)
     {
         var result = _publisherService.Update(publisherUpdateRequest);
         return ActionResultInstance(result);
     }
 
     [HttpDelete]
-    public IActionResult Delete(int id)
+    public IActionResult Delete([FromQuery]int id)
     {
         var result = _publisherService.Delete(id);
         return ActionResultInstance(result);
     }
 
     [HttpGet("getbyid")]
-    public IActionResult GetById(int id)
+    public IActionResult GetById([FromQuery]int id)
     {
         var result = _publisherService.GetById(id);
         return ActionResultInstance(result);

@@ -39,7 +39,7 @@ public class CategoriesController : BaseController
     }
 
     [HttpGet("getbyid")]
-    public IActionResult GetById(int id)
+    public IActionResult GetById([FromQuery] int id)
     {
         var result = _categoryService.GetById(id);
         return ActionResultInstance(result);
