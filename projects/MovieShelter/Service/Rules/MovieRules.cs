@@ -27,6 +27,15 @@ public class MovieRules
         }
     }
 
+    public void ReleaseDateMustBe4Digits(int releaseDate)
+    {
+        var movie = _movieRepository.GetByFilter(x=>x.ReleaseDate==releaseDate);
+        if(releaseDate < 1900)
+        {
+            throw new BusinessException("Yayinlanma tarihi minimum 1900 olabilir");
+        }
+    }
+
     public void MovieIsPresent(Guid id)
     {
         var movie = _movieRepository.GetById(id);

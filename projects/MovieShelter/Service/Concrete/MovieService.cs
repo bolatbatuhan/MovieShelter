@@ -28,6 +28,7 @@ public class MovieService : IMovieService
         {
             Movie movie = request;
             _rules.MovieNameMustBeUnique(movie.Title);
+            _rules.ReleaseDateMustBe4Digits(movie.ReleaseDate);
 
             movie.Id = new Guid();
             _movieRepository.Add(movie);
@@ -129,6 +130,7 @@ public class MovieService : IMovieService
         {
             Movie movie = request;
             _rules.MovieNameMustBeUnique(movie.Title);
+            _rules.ReleaseDateMustBe4Digits(movie.ReleaseDate);
 
             _movieRepository.Update(movie);
 
